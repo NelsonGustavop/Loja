@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Endereco implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,83 +17,52 @@ public class Endereco implements Serializable {
 	private String uf;
 	private String cidade;
 	private String logradouro;
-		
-	private Client client;
+
+	
 
 	public Endereco() {
 	}
 
-
-
-	public Endereco(String uf, String cidade, String logradouro, Client client) {
+	public Endereco(Integer id, String uf, String cidade, String logradouro) {
 		super();
+		this.id = id;
 		this.uf = uf;
 		this.cidade = cidade;
 		this.logradouro = logradouro;
-		this.client = client;
+		
 	}
-
-
 
 	public String getUf() {
 		return uf;
 	}
 
-
-
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
-
-
 
 	public String getCidade() {
 		return cidade;
 	}
 
-
-
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-
-
 
 	public String getLogradouro() {
 		return logradouro;
 	}
 
-
-
 	public void setLogradouro(String logradouro) {
 		this.logradouro = logradouro;
 	}
-
-
-
-	public Client getClient() {
-		return client;
-	}
-
-
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
-
-
 
 	public Integer getId() {
 		return id;
 	}
 
-
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
 
 	@Override
 	public int hashCode() {
@@ -102,8 +71,6 @@ public class Endereco implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -121,7 +88,5 @@ public class Endereco implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
+
 }

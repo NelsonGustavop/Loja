@@ -1,31 +1,32 @@
 package com.Slayer.loja.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Client implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
 	private String telefone;
-	
-	
-	private Endereco end;
 
+	@OneToMany
+	private List<Endereco> end = new ArrayList<>();
 
 	public Client() {
 	}
 
-
-	public Client(Integer id, String name, String telefone, Endereco end) {
+	public Client(Integer id, String name, String telefone, List<Endereco> end) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -33,46 +34,37 @@ public class Client implements Serializable {
 		this.end = end;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public String getName() {
 		return name;
 	}
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
 	public String getTelefone() {
 		return telefone;
 	}
-
 
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
-
-	public Endereco getEnd() {
+	public List<Endereco> getEnd() {
 		return end;
 	}
 
-
-	public void setEnd(Endereco end) {
+	public void setEnd(List<Endereco> end) {
 		this.end = end;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -81,7 +73,6 @@ public class Client implements Serializable {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -99,8 +90,5 @@ public class Client implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-	
-}
 
+}
